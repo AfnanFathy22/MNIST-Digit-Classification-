@@ -1,7 +1,8 @@
 # MNIST-Digit-Classification-
 
 Project Overview
-The notebook implements a deep learning solution for the classic MNIST Handwritten Digit Classification task using the Keras library. The goal is to correctly identify digits (0-9) from grayscale images.
+The notebook implements a deep learning solution for the classic MNIST Handwritten Digit Classification task using the Keras library. 
+The goal is to correctly identify digits (0-9) from grayscale images.
 
 Dataset Details
 
