@@ -1,58 +1,82 @@
-# MNIST-Digit-Classification-
 
-Project Overview
-The notebook implements a deep learning solution for the classic MNIST Handwritten Digit Classification task using the Keras library. 
-The goal is to correctly identify digits (0-9) from grayscale images.
+# MNIST Digit Classification
 
-Dataset Details
+## Project Overview
 
-Source: The standard MNIST dataset provided by Keras.
+This project implements a deep learning solution for the classic MNIST handwritten digit classification task using the Keras library. The goal is to correctly identify digits (0–9) from grayscale images.
 
-Size: 60,000 training samples and 10,000 test samples.
+---
 
-Input Format: 28x28 pixel grayscale images.
+## Dataset Details
 
-Key Steps & Methodology
+* **Source:** The standard MNIST dataset provided by Keras
+* **Training Set Shape:** (60000, 28, 28)
+* **Test Set Shape:** (10000, 28, 28)
+* **After Flattening:**
 
-Data Preprocessing:
+  * Training: (60000, 784)
+  * Test: (10000, 784)
+* **Image Size:** 28 × 28 pixels
+* **Input Type:** Grayscale (single channel)
 
-Flattening: The 2D image matrices (28x28) are reshaped into 1D vectors of 784 elements to serve as input for the dense layers.
+---
 
-Normalization: Pixel values are scaled from the range [0] [255] to [0] [1] to improve training stability.
+## Key Steps & Methodology
 
-One-Hot Encoding: Target labels are converted into categorical vectors.
+### Data Preprocessing
 
-Model Architecture:
+* **Flattening:**
+  Each image is reshaped from (28, 28) into a vector of shape (784,) to be compatible with Dense layers.
+
+* **Normalization:**
+  Pixel values are scaled from [0, 255] to [0, 1] by dividing by 255.0 to improve training stability.
+
+* **One-Hot Encoding:**
+  Labels are converted into categorical vectors of shape (10,).
+
+  * Before encoding: (60000,)
+  * After encoding: (60000, 10)
+
+---
+
+## Model Architecture
+
 A Sequential neural network with the following structure:
 
-Dense Layer 1: 128 units, ReLU activation.
+* Dense Layer 1: 128 units, ReLU activation
 
-Dense Layer 2: 256 units, ReLU activation.
+* Dense Layer 2: 256 units, ReLU activation
 
-Dense Layer 3: 256 units, ReLU activation.
+* Dense Layer 3: 256 units, ReLU activation
 
-Dense Layer 4: 64 units, ReLU activation.
+* Dense Layer 4: 64 units, ReLU activation
 
-Output Layer: 10 units, Softmax activation (for probability distribution over 10 classes).
+* Output Layer: 10 units, Softmax activation
 
-Total Parameters: 216,394 trainable parameters.
+* **Total Parameters:** 216,394 trainable parameters
 
-Training Configuration:
+---
 
-Optimizer: Stochastic Gradient Descent (SGD).
+## Training Configuration
 
-Loss Function: Categorical Crossentropy.
+* **Optimizer:** Stochastic Gradient Descent (SGD)
+* **Loss Function:** Categorical Crossentropy
+* **Hyperparameters:**
 
-Hyperparameters: 50 epochs, batch size of 64, and a 10% validation split.
+  * Epochs: 50
+  * Batch Size: 64
+  * Validation Split: 0.1
 
-Performance Results
+---
 
-Training Accuracy: ~99.7%
+## Performance Results
 
-Validation Accuracy: ~97.8%
+* **Training Accuracy:** ~99.7%
+* **Validation Accuracy:** ~97.8%
+* **Test Accuracy:** 97.6%
 
-Final Test Accuracy: 97.6%
+---
 
-Evaluation & Visualization
+## Evaluation & Visualization
 
-The notebook concludes with a Confusion Matrix generated using Seaborn, providing a detailed breakdown of the model's predictions across all ten digit classes.
+The model is evaluated using a confusion matrix generated with Seaborn, providing a detailed breakdown of predictions across all digit classes.
